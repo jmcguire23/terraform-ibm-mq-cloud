@@ -14,6 +14,12 @@ variable "region" {
   default     = "us-south"
 }
 
+variable "service_name" {
+  type        = string
+  description = "The name to give the MQ on Cloud instance."
+  default = "mqcloud"
+}
+
 variable "prefix" {
   type        = string
   description = "Prefix to append to all resources created by this example"

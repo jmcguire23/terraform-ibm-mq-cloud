@@ -14,7 +14,7 @@ resource "ibm_resource_instance" "mqcloud_capacity" {
   name              = var.name
   plan              = "reserved-capacity"
   resource_group_id = var.resource_group_id
-  service           = "mqcloud"
+  service           = var.service_name
   tags              = var.tags
 }
 
@@ -26,7 +26,7 @@ resource "ibm_resource_instance" "mqcloud_deployment" {
   parameters = {
     "selectedCapacityPlan" = local.mq_capacity_guid
   }
-  service = "mqcloud"
+  service = var.service_name
   tags    = var.tags
 }
 
