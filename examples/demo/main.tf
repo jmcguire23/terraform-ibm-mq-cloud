@@ -21,6 +21,7 @@ module "mqcloud_instance" {
   service_name              = var.service_name
   resource_group_id         = module.resource_group.resource_group_id
   existing_mq_capacity_guid = var.existing_mq_capacity_guid
+  plan_name                 = var.plan_name
 }
 
 module "queue_manager" {
