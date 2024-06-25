@@ -17,6 +17,12 @@ variable "name" {
   description = "The name to give the MQ on Cloud instance."
 }
 
+variable "service_name" {
+  type        = string
+  description = "The name to give the MQ on Cloud instance."
+  default = "mqcloud"
+}
+
 # The service does not support terraform on the `lite` plan
 # To list plans:
 # ibmcloud catalog service mqcloud

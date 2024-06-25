@@ -18,13 +18,14 @@ module "mqcloud_instance" {
   source                    = "../../modules/mq-instance"
   name                      = "${var.prefix}-mq-instance"
   region                    = var.region
+  service_name              = var.service_name
   resource_group_id         = module.resource_group.resource_group_id
   existing_mq_capacity_guid = var.existing_mq_capacity_guid
 }
 
 module "queue_manager" {
   source                = "../../modules/queue-manager"
-  display_name          = "${var.prefix}-qm-display"
+  display_name          = "${var.prefix}-qm-display-name"
   location              = module.mqcloud_instance.queue_manager_options.locations[0]
   name                  = "${var.prefix}_qm"
   service_instance_guid = module.mqcloud_instance.deployment_guid
