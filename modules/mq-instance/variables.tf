@@ -20,8 +20,15 @@ variable "name" {
 variable "service_name" {
   type        = string
   description = "The name to give the MQ on Cloud instance."
-  default = "mqcloud"
+  default     = "mqcloud"
 }
+
+variable "plan_name" {
+  type        = string
+  description = "The name of the service plan"
+  default = "reserved-deployment"
+}
+
 
 # The service does not support terraform on the `lite` plan
 # To list plans:

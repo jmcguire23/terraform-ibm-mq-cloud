@@ -17,7 +17,13 @@ variable "region" {
 variable "service_name" {
   type        = string
   description = "The name to give the MQ on Cloud instance."
-  default = "mqcloud"
+  default     = "mqcloud"
+}
+
+variable "plan_name" {
+  type = string
+  description = "Name of plan"
+  default = "reserved-deployment"
 }
 
 variable "prefix" {
