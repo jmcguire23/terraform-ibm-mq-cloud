@@ -28,8 +28,18 @@ module "queue_manager" {
   source                = "../../modules/queue-manager"
   display_name          = "${var.prefix}-qm-display-name"
   location              = module.mqcloud_instance.queue_manager_options.locations[0]
-  name                  = "${var.prefix}_qm"
+  name                  = var.qm_name
   service_instance_guid = module.mqcloud_instance.deployment_guid
   size                  = "xsmall"
   queue_manager_version = module.mqcloud_instance.queue_manager_options.latest_version
+}
+module "mqcloud_user" {
+  for_each = {
+    for index, user in var.users:
+    user.name => user
+  }
+  source                = "../../modules/user"
+  service_instance_guid = module.mqcloud_instance.deployment_guid
+  name = each.value.name
+  email = each.value.email
 }

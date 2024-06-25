@@ -42,3 +42,18 @@ variable "existing_mq_capacity_guid" {
   type        = string
   description = "The GUID of an existing capacity service instance"
 }
+
+variable "qm_name" {
+  type = string
+  description = "Name of queue manager"
+  default = "QM1"
+}
+
+variable "users" {
+  description = "List of users to grant access on the queue manager"
+  type = list(object({
+    name = string
+    email = string
+  }))
+  default = []
+}
