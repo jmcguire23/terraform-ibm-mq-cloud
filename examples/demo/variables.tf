@@ -30,3 +30,39 @@ variable "existing_mq_capacity_guid" {
   type        = string
   description = "The GUID of an existing capacity service instance"
 }
+
+variable "service_name" {
+  type        = string
+  description = "The name to give the MQ on Cloud instance."
+  default     = "mqcloud"
+}
+
+variable "plan_name" {
+  type = string
+  description = "Name of plan"
+  default = "reserved-deployment"
+}
+
+
+variable "qm_name" {
+  type = string
+  description = "Name of queue manager"
+  default = "QM1"
+}
+
+variable "users" {
+  description = "List of users to grant access on the queue manager"
+  type = list(object({
+    name = string
+    email = string
+  }))
+  default = []
+}
+
+variable "apps" {
+  description = "List of users to grant access on the queue manager"
+  type = list(object({
+    name = string
+  }))
+  default = []
+}
