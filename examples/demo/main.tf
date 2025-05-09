@@ -32,6 +32,17 @@ module "queue_manager" {
   queue_manager_version = module.mqcloud_instance.queue_manager_options.latest_version
 }
 
+# module "queue_manager" {
+#   source                = "../../modules/queue-manager"
+#   display_name          = "This Queue Manager was deployed using Terraform"
+#   location              = module.mqcloud_instance.queue_manager_options.locations[0]
+#   name                  = "QM2"
+#   service_instance_crn  = module.mqcloud_instance.deployment_crn
+#   size                  = "xsmall"
+#   queue_manager_version = module.mqcloud_instance.queue_manager_options.latest_version
+# }
+
+
 ##############################################################################
 # MQ on Cloud applications
 ##############################################################################
